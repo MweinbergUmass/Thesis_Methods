@@ -14,6 +14,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\usepackage{natbib} % For author-year citations
+\setcitestyle{authoryear,open={(},close={)}}
 
 
 \title{Thesis}
@@ -21,13 +23,13 @@
 \date{May 2024}
 
 \begin{document}
-
 \maketitle
-\section{Introduction}
-\subsection{Computational Ethology}
+\section{Chapter 1: Literature Review}
 \subsection{Intro}
-I will begin this section by reviewing what has been done so far in the field of computational ethology. After, I will identify the gaps in the field and address how our approach can handle some of these gaps. I will end this section with discussion's of current limitations, philosophical and computational. 
-%@ ai: Help with citations here
+I will begin this section by reviewing what has been done so far in the field of computational ethology. After, I will identify the gaps in the field and address how our approach can handle some of these gaps. I will end this section with discussion of current limitations, philosophical and computational. %ai: formalize that last part
+\subsection{Computational Ethology}
+
+
 
 \subsection{The Social Behavior Network}
 
@@ -47,7 +49,7 @@ I will begin this section by reviewing what has been done so far in the field of
 
 
 
-After the video was collected it was immediately uploaded to Microsoft OneDrive for fidelity. Sleap XXX Insert Ref Here... Pereira 2019 et al XXX was used to train a convolutional neural network to identify 22 key points on both mice for every frame. The training process was iterated by training on a set of labeled frames, generating predictions, and then identifying the worst performing frames and labeling those. 
+After the video was collected it was immediately uploaded to Microsoft OneDrive for fidelity. Sleap \citep{pereiraSLEAPDeepLearning2022} was used to train a convolutional neural network to identify 22 key points on both mice for every frame. The training process was iterated by training on a set of labeled frames, generating predictions, and then identifying the worst performing frames and labeling those. 
 % put in image of skeleton with numbers next to each node and list each node
 
 
@@ -227,7 +229,7 @@ Once the dimensionality was reduced, the CWT was applied to the principal compon
 % include figure of wavelet transformed feature
 
 \subsection{Dimensionality Reduction}
-Given the new expanded dataset, \( D \) $\in$ \( \mathbb{R}^{N \times M+(a * R)} \) where \( a \) is the number of scales used. This new dataset should now contain a meaningful representation of behavior. However, the new dataset likely lies on a much lower dimensional manifold given all the redundancy in the wavelet transform and in the features chosen. To reduce the complexity and to find the underlying manifold, following Berman et al., 2014, T-Distributed Stochastic Neighbor Embedding (Tsne) was used. 
+Given the new expanded dataset, \( D \) $\in$ \( \mathbb{R}^{N \times M+(a * R)} \) where \( a \) is the number of scales used. This new dataset should now contain a meaningful representation of behavior. However, the new dataset likely lies on a much lower dimensional manifold given all the redundancy in the wavelet transform and in the features chosen. To reduce the complexity and to find the underlying manifold, following \citep{bermanMappingStereotypedBehaviour2014}, T-Distributed Stochastic Neighbor Embedding \citep{maatenVisualizingDataUsing2008} (Tsne) was used. 
 
 Tsne attempts to model the local similarities between all data points. It starts by constructing a distance matrix 
 
@@ -299,6 +301,9 @@ Optimizer & Adam & First-order gradient-based optimization. \\
 \caption{Model parameters used in the convolutional neural network.}
 \label{tab:model_params}
 \end{table}
+{\bibliographystyle{plainnat}
+}
+\bibliography{references}
 
 \end{document}
 
